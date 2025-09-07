@@ -619,10 +619,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                 </TermInfoData>
                 <Courses>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7220Z</CourseCode>
                             <CourseTitle>Jazz Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -671,10 +671,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>ADV001Z</CourseCode>
                             <CourseTitle>Advisory</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -723,10 +723,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SC2106Z</CourseCode>
                             <CourseTitle>Biology- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -775,10 +775,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>MA3105Z</CourseCode>
                             <CourseTitle>Pre-Calculus- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -827,10 +827,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SC2106Z</CourseCode>
                             <CourseTitle>Biology- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -879,10 +879,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SS2210Z</CourseCode>
                             <CourseTitle>US History I- Curr A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -931,10 +931,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>ADV001Z</CourseCode>
                             <CourseTitle>Advisory</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -983,10 +983,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>CL3105Z</CourseCode>
                             <CourseTitle>Latin III- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1035,10 +1035,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>ADV001Z</CourseCode>
                             <CourseTitle>Advisory</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1087,10 +1087,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SS2210Z</CourseCode>
                             <CourseTitle>US History I- Curr A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1139,10 +1139,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>CL3105Z</CourseCode>
                             <CourseTitle>Latin III- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1191,10 +1191,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>MA3105Z</CourseCode>
                             <CourseTitle>Pre-Calculus- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1243,10 +1243,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SS2210Z</CourseCode>
                             <CourseTitle>US History I- Curr A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1295,10 +1295,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>EN2120Z</CourseCode>
                             <CourseTitle>Examining Expression Curr. A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1347,10 +1347,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>MA3105Z</CourseCode>
                             <CourseTitle>Pre-Calculus- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1399,10 +1399,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>EN2120Z</CourseCode>
                             <CourseTitle>Examining Expression Curr. A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1451,10 +1451,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7220Z</CourseCode>
                             <CourseTitle>Jazz Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1503,10 +1503,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7220Z</CourseCode>
                             <CourseTitle>Jazz Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1555,10 +1555,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>CL3105Z</CourseCode>
                             <CourseTitle>Latin III- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1607,10 +1607,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SS2210Z</CourseCode>
                             <CourseTitle>US History I- Curr A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1659,10 +1659,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SC2106Z</CourseCode>
                             <CourseTitle>Biology- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1711,10 +1711,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7105Z</CourseCode>
                             <CourseTitle>Symphonic Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1763,10 +1763,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SS2210Z</CourseCode>
                             <CourseTitle>US History I- Curr A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1815,10 +1815,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>EN2120Z</CourseCode>
                             <CourseTitle>Examining Expression Curr. A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1867,10 +1867,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7220Z</CourseCode>
                             <CourseTitle>Jazz Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1919,10 +1919,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>MA3105Z</CourseCode>
                             <CourseTitle>Pre-Calculus- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -1971,10 +1971,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>ADV001Z</CourseCode>
                             <CourseTitle>Advisory</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2023,10 +2023,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7105Z</CourseCode>
                             <CourseTitle>Symphonic Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2075,10 +2075,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>EN2120Z</CourseCode>
                             <CourseTitle>Examining Expression Curr. A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2127,10 +2127,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>MA3105Z</CourseCode>
                             <CourseTitle>Pre-Calculus- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2179,10 +2179,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SC2106Z</CourseCode>
                             <CourseTitle>Biology- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2231,10 +2231,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7105Z</CourseCode>
                             <CourseTitle>Symphonic Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2283,10 +2283,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7105Z</CourseCode>
                             <CourseTitle>Symphonic Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2335,10 +2335,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7105Z</CourseCode>
                             <CourseTitle>Symphonic Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2387,10 +2387,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>CL3105Z</CourseCode>
                             <CourseTitle>Latin III- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2439,10 +2439,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>PA7220Z</CourseCode>
                             <CourseTitle>Jazz Band- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2491,10 +2491,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>ADV001Z</CourseCode>
                             <CourseTitle>Advisory</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2543,10 +2543,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>EN2120Z</CourseCode>
                             <CourseTitle>Examining Expression Curr. A</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2595,10 +2595,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>CL3105Z</CourseCode>
                             <CourseTitle>Latin III- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
@@ -2647,10 +2647,10 @@ Content-type: application/vnd.sif.studentrecordexchange+xml
                         </SIF_ExtendedElements>
                     </Course>
                     <Course>
-                        <SchoolCourseInfoData>
+                        <Schoolcourse-infoData>
                             <CourseCode>SC2106Z</CourseCode>
                             <CourseTitle>Biology- Curr H</CourseTitle>
-                        </SchoolCourseInfoData>
+                        </Schoolcourse-infoData>
                         <MarkingPeriods>
                             <MarkingPeriod>
                                 <GradeLevelWhenTaken>
