@@ -11,21 +11,28 @@ export function GradeView({ g }: { g: Grade }) {
     }
     return (
       <>
-        <td className={"grade-" + quarter + " grades"} data-th={g.quarter}>
-          <p className="grade-values">
+        <td
+          className={`grades-table__grade grades-table__grade--${quarter}`}
+          data-th={g.quarter}
+        >
+          <div className="grades-table__grade-values">
             {g.letterGrade && (
-              <span className="letter-grade">{g.letterGrade}</span>
+              <span className="grades-table__letter-grade">
+                {g.letterGrade}
+              </span>
             )}
             {g.numberGrade && (
-              <span className="number-grade">{g.numberGrade}</span>
+              <span className="grades-table__number-grade">
+                ({g.numberGrade})
+              </span>
             )}
-          </p>
+          </div>
           {g.daysAbsent && (
-            <p className={"absent-" + quarter + " absent-count"}>
+            <p className="grades-table__absent-count">
               {`Absent ${g.daysAbsent} day${g.daysAbsent == "1" ? "" : "s"}`}
             </p>
           )}
-          <p className={"comments-" + quarter + " comments"}>{g.comments}</p>
+          <p className="grades-table__comments">{g.comments}</p>
         </td>
       </>
     );

@@ -10,7 +10,7 @@ const REQUIRED_QUARTERS = ["Q1", "Q2", "Q3", "Q4", "Y1"];
 
 function TableHeader() {
   return (
-    <tr className="table-header">
+    <tr className="grades-table__row grades-table__row--header">
       <th>Class</th>
       {REQUIRED_QUARTERS.map((quarter) => (
         <th key={quarter}>{quarter}</th>
@@ -46,12 +46,9 @@ function YearSelector({
   };
   return (
     <div className="year-selector">
-      <label>
-        Year
-        <select name={"year"} onChange={onChange} value={selectedYear || "—"}>
-          {yearSelectOptions()}
-        </select>
-      </label>
+      <select name={"year"} onChange={onChange} value={selectedYear || "—"}>
+        {yearSelectOptions()}
+      </select>
     </div>
   );
 }
@@ -122,14 +119,14 @@ function App() {
   return (
     <>
       <div
-        className={`main-header no-print ${isDragOver ? "drag-over" : ""} ${
-          allYears.length > 0 ? "file-loaded" : ""
+        className={`header no-print ${isDragOver ? "header--drag-over" : ""} ${
+          allYears.length > 0 ? "header--file-loaded" : ""
         }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        <form id="form" className="drop-zone main-header__form">
+        <form id="form" className="header__form">
           <h1>Power School Report Card</h1>
           <p>
             Visit your school’s Powerschool website and download the MIME file
@@ -143,10 +140,10 @@ function App() {
               name="gradeReport"
               id="gradeReport"
               onChange={onNewFile}
-              className="file-input"
+              className="header__file-input"
               accept=".mime,.xml,.txt"
             />
-            <label htmlFor="gradeReport" className="file-label">
+            <label htmlFor="gradeReport" className="header__file-label">
               select a file
             </label>
           </p>
@@ -154,20 +151,24 @@ function App() {
       </div>
 
       {allYears.length > 0 && (
-        <div className="main-content">
+        <div className="content">
           <div className="student-header">
             {uploadedFileName && (
-              <div className="uploaded-file">{uploadedFileName}</div>
+              <div className="student-header__uploaded-file">
+                {uploadedFileName}
+              </div>
             )}
-            <StudentDisplay student={student} selectedYear={selectedYear} />
-            <YearSelector
-              yearValues={allYears}
-              onChange={updateSelectedYear}
-              selectedYear={selectedYear}
-            />
+            <div className="student-header__info">
+              <StudentDisplay student={student} selectedYear={selectedYear} />
+              <YearSelector
+                yearValues={allYears}
+                onChange={updateSelectedYear}
+                selectedYear={selectedYear}
+              />
+            </div>
           </div>
 
-          <table>
+          <table className="grades-table">
             <TableHeader />
             <GradesView
               gg={allGrades}

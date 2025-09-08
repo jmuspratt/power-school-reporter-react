@@ -6,10 +6,10 @@
 :root {
   /* Color */
   --c-primary: #362B2B;
-  --c-secondary: #655C55;
+  --c-secondary: #7B726A;
   --c-background: #FAF8F3;
   --c-border: var(--c-primary);
-  --c-border-light: #ececec;
+  --c-border-light: #d3caca;
 
   /* Spacing */
   --max-width: 1800px;
@@ -29,8 +29,8 @@
 
 :root {
 @media (min-width: 800px) {
-    --f-size-sm: 14px;
-    --f-size-md: 28px;
+    --f-size-sm: 13px;
+    --f-size-md: 24px;
     --f-size-lg: 48px;  
     --site-padding: 40px;
     --grid-gap: 20px;
@@ -52,7 +52,7 @@ body {
   text-align: left;
 }
 
-.main-header, .main-content {
+.header, .content {
   background-color: #EBEAE5;
   padding: var(--site-padding);
   max-width: var(--max-width);
@@ -61,8 +61,8 @@ body {
 
 
 
-/* Main Header */
-.main-header {
+/* Header */
+.header {
   padding-top: var(--site-padding);
   padding-bottom: var(--site-padding);
   display: flex;
@@ -73,11 +73,11 @@ body {
   transition: height 0.5 ease-in-out;
 }
 
-.main-header.file-loaded {
+.header--file-loaded {
   height: 100px;
 }
 
-.main-header__form {
+.header__form {
   border: 1px dashed var(--c-secondary);
   border-radius: 3px;
   padding: 20px;
@@ -87,13 +87,13 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.main-header__form .material-symbols-outlined {
+.header__form .material-symbols-outlined {
   font-size: 130%;
   display: inline-block;
   vertical-align: bottom;
 }
 
-.main-header__form h1 {
+.header__form h1 {
   font-size: var(--f-size-sm);
   margin: 0;
   padding: 0;
@@ -116,31 +116,31 @@ body {
   padding: 0;
 }
 
-.main-header.drag-over .drop-zone {
+.header--drag-over .header__form {
   border-style: solid;
   background-color: rgba(0, 0, 0, 0.1);
   transform: scale(1.02);
 }
 
 
-.file-input {
+.header__file-input {
   display: none;
 }
 
-.file-label {
+.header__file-label {
   display: inline-block;
   border-bottom: 1px solid var(--c-secondary);
   font-weight: bold;
 
 }
 
-/* Main Content */
-.main-content {
+/* Content */
+.content {
   background-color: var(--c-background);
 }
 
 /* Student Header */
-.student-header {
+.drop-zone {
   padding: var(--grid-gap) 0;
 }
 
@@ -149,12 +149,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
-.year-selector label {
-  display: block;
-  font-weight: bold;
-  padding-bottom: 2px;
+.student-header__info {
+  display: flex;
+  align-items: baseline;
+  gap: var(--grid-gap);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
 }
+
 
 .year-selector select {
   min-width: 100px;
@@ -168,24 +171,26 @@ body {
 }
 
 /* Grades Table */
-.table-header {
+.grades-table__row--header {
   display: none;
 }
 
-.table-header td,
-.course-record td {
-  border-bottom: 1px solid var(--c-border-light);
+.grades-table__row--header td,
+.grades-table__row td {
   position: relative;
   padding: var(--grid-gap) 0;
   display: block;
   padding-left: 70px;
 }
+.grades-table__row td:not(:last-of-type) {
+  border-bottom: 1px solid var(--c-border-light);
+}
 
-.course-record td:first-of-type {
+.grades-table__row td:first-of-type {
   border-top: 3px solid var(--c-primary);
 }
 
-.course-record td::before {
+.grades-table__row td::before {
   content: attr(data-th);
   font-weight: bold;
   width: 50px;
@@ -197,27 +202,27 @@ body {
 }
 
  @media (min-width: 800px) {
-  .table-header,
-  .course-record {
+  .grades-table__row--header,
+  .grades-table__row {
+    border-bottom: 1px solid var(--c-border);
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: var(--grid-gap);
-  border-bottom: 1px solid var(--c-border);
   }
-.table-header td,
-.course-record td {
-  border: none !important;
-  display: block;
-  padding: 0;
-}
+  .grades-table__row--header td,
+  .grades-table__row td {
+    border: none !important;
+    display: block;
+    padding: 0;
+  }
 
-  .course-record td::before {
+  .grades-table__row td::before {
     display: none;
   }
  }
 
 
-.table-header {
+.grades-table__row--header {
   background: var(--c-background);
   border-top: 3px solid var(--c-primary);
   font-weight: bold;
@@ -227,59 +232,62 @@ body {
   z-index: 2;
 }
 
-.course-record {
+.grades-table__row {
   padding: var(--grid-gap) 0;
 }
 
-.course-info {
+.grades-table__course {
   grid-column: span 1;
 }
-.course-title {
+.grades-table__course-title {
   font-weight: normal;
   font-size: var(--f-size-md);
+  font-weight: bold;;
   margin: 0;
   padding: 0;
 }
 
 /* Table cell */
-.grade-values {
+.grades-table__grade-values {
   display: flex;
   align-items: baseline;
   padding: 0;
   margin: 0;
 }
 
-.letter-grade {
+.grades-table__letter-grade {
   font-weight:normal;
   font-size: var(--f-size-md);
-  display: inline-block;
+  font-weight: bold;
+  display: block;
+  margin-right: 5px;
 }
 
-.number-grade {
-  border: 1px solid var(--c-border);
-  border-radius: 5px;
-  display: inline-block;
-  padding: 4px 6px;
-  margin-left: 10px;
+.grades-table__number-grade {
+  display: block;
   position: relative;
-  top: -4px;
+  color: var(--c-secondary);
 }
 
-.absent-count {
+
+.grades-table__absent-count {
   color: var(--c-secondary);
   font-style: italic;
 }
-.comments {
+.grades-table__comments {
   color: var(--c-secondary)
 }
 
 /* Print */
 @media print {
-  body {
-    font-size: 0.7em;
+  :root {
+    --f-size-sm: 0.5em;
+    --f-size-md: 1.5em;
+    --f-size-lg: 2em;
+    --grid-gap: 15px;
   }
-
-.no-print, .no-print * {
-  display: none !important;
-}
+  .no-print, 
+  .no-print * {
+    display: none !important;
+  }
 }

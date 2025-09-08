@@ -14,7 +14,6 @@ export function StudentDisplay({
           <h1>
             {student.givenName} {student.middleName} {student.familyName}
           </h1>
-          <p> School Year Starting Fall {selectedYear}</p>
         </div>
       </>
     );
