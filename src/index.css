@@ -241,7 +241,6 @@ body {
   padding: 0;
 }
 
-
 /* Table cell */
 .grade-values {
   display: flex;
@@ -274,13 +273,13 @@ body {
   color: var(--c-secondary)
 }
 
-/* No Print */
+/* Print */
 @media print {
   body {
-    font-size: 70%;
+    font-size: 0.7em;
   }
 
-  .no-print, .no-print * {
-    display: none !important;
-  }
+.no-print, .no-print * {
+  display: none !important;
+}
 }
