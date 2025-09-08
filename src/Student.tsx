@@ -10,7 +10,7 @@ export function StudentDisplay({
   if (student) {
     return (
       <>
-        <div className="student-header">
+        <div>
           <h1>
             {student.givenName} {student.middleName} {student.familyName}
           </h1>

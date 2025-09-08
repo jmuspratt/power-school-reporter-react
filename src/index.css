@@ -1,26 +1,40 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=download');
 
 /* CSS Variables */
 :root {
+  /* Color */
   --c-primary: #362B2B;
   --c-secondary: #655C55;
   --c-background: #FAF8F3;
-  --max-width: 1600px;
-  --site-padding: 30px;
-  --grid-gap: 30px;
-  --column-gap: 30px;
-  --border-color: black;
-  --border-color-light: rgba(0, 0, 0, 0.8);
-  --docs-color: #888;
+  --c-border: var(--c-primary);
+  --c-border-light: #ececec;
+
+  /* Spacing */
+  --max-width: 1800px;
+  --site-padding: 20px;
+  --grid-gap: 12px;
+  
+  /* Type */
   --f-size-sm: 12px;
-  --f-size-md: 24px;
-  --f-size-lg: 48px;
+  --f-size-md: 18px;
+  --f-size-lg: 28px;
   --ff-sans: 'Montserrat',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
+}
+
+:root {
+@media (min-width: 800px) {
+    --f-size-sm: 14px;
+    --f-size-md: 28px;
+    --f-size-lg: 48px;  
+    --site-padding: 40px;
+    --grid-gap: 20px;
+  }
 }
 
 /* Base Layout */
@@ -45,36 +59,56 @@ body {
   margin: 0;
 }
 
+
+
 /* Main Header */
 .main-header {
-display: flex;
-justify-content: space-between;
-align-items: flex-end;
-gap: var(--grid-gap)
-}
-.main-header__intro {
-  max-width: 600px;
-}
-
-.main-header__intro h1 {
-  font-size: var(--f-size-sm);
-  margin: 0 0 0.5em;
-}
-
-
-
-/* Drag and Drop Styles */
-.drop-zone {
+  padding-top: var(--site-padding);
+  padding-bottom: var(--site-padding);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  transition: height 0.5 ease-in-out;
+}
+
+.main-header.file-loaded {
+  height: 100px;
+}
+
+.main-header__form {
   border: 1px dashed var(--c-secondary);
   border-radius: 3px;
   padding: 20px;
   transition: all 0.3s ease;
-  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+.main-header__form .material-symbols-outlined {
+  font-size: 130%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.main-header__form h1 {
+  font-size: var(--f-size-sm);
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Uploaded File Display */
+.uploaded-file {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: var(--f-size-sm);
+}
+
+/* Drag and Drop Styles */
 
 .drop-zone p, .drop-zone label {
   display: inline-block;
@@ -82,9 +116,9 @@ gap: var(--grid-gap)
   padding: 0;
 }
 
-.upload-form.drag-over .drop-zone {
-  border-color: var(--c-primary);
-  background-color: rgba(255, 255, 255, 0.8);
+.main-header.drag-over .drop-zone {
+  border-style: solid;
+  background-color: rgba(0, 0, 0, 0.1);
   transform: scale(1.02);
 }
 
@@ -100,9 +134,6 @@ gap: var(--grid-gap)
 
 }
 
-.file-label:hover {
-  background-color: var(--c-secondary);
-}
 /* Main Content */
 .main-content {
   background-color: var(--c-background);
@@ -137,18 +168,63 @@ gap: var(--grid-gap)
 }
 
 /* Grades Table */
-.quarter-header,
-.course-record {
-  border-top: 1px solid var(--c-primary);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: var(--grid-gap);
+.table-header {
+  display: none;
 }
 
-.quarter-header {
+.table-header td,
+.course-record td {
+  border-bottom: 1px solid var(--c-border-light);
+  position: relative;
+  padding: var(--grid-gap) 0;
+  display: block;
+  padding-left: 70px;
+}
+
+.course-record td:first-of-type {
+  border-top: 3px solid var(--c-primary);
+}
+
+.course-record td::before {
+  content: attr(data-th);
+  font-weight: bold;
+  width: 50px;
+  display: block;
+  position: absolute;
+  top: var(--grid-gap);
+  left: 0;
+  pointer-events: none;
+}
+
+ @media (min-width: 800px) {
+  .table-header,
+  .course-record {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: var(--grid-gap);
+  border-bottom: 1px solid var(--c-border);
+  }
+.table-header td,
+.course-record td {
+  border: none !important;
+  display: block;
+  padding: 0;
+}
+
+  .course-record td::before {
+    display: none;
+  }
+ }
+
+
+.table-header {
+  background: var(--c-background);
   border-top: 3px solid var(--c-primary);
   font-weight: bold;
   padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .course-record {
@@ -165,12 +241,6 @@ gap: var(--grid-gap)
   padding: 0;
 }
 
-/* Grades */
-.grade-container {
-  display: grid;
-  grid-column: span 5;
-  grid-template-columns: subgrid;
-}
 
 /* Table cell */
 .grade-values {
@@ -182,16 +252,18 @@ gap: var(--grid-gap)
 
 .letter-grade {
   font-weight:normal;
-  font-size: 24px;
+  font-size: var(--f-size-md);
   display: inline-block;
 }
 
 .number-grade {
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--c-border);
   border-radius: 5px;
   display: inline-block;
   padding: 4px 6px;
   margin-left: 10px;
+  position: relative;
+  top: -4px;
 }
 
 .absent-count {
@@ -200,4 +272,15 @@ gap: var(--grid-gap)
 }
 .comments {
   color: var(--c-secondary)
+}
+
+/* No Print */
+@media print {
+  body {
+    font-size: 70%;
+  }
+
+  .no-print, .no-print * {
+    display: none !important;
+  }
 }

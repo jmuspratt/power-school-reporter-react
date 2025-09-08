@@ -11,8 +11,7 @@ export function GradeView({ g }: { g: Grade }) {
     }
     return (
       <>
-        <div className={"grade-" + quarter + " grades"}>
-          {/* <p className={quarter + " period"}>{g.quarter}</p> */}
+        <td className={"grade-" + quarter + " grades"} data-th={g.quarter}>
           <p className="grade-values">
             {g.letterGrade && (
               <span className="letter-grade">{g.letterGrade}</span>
@@ -23,10 +22,11 @@ export function GradeView({ g }: { g: Grade }) {
           </p>
           {g.daysAbsent && (
             <p className={"absent-" + quarter + " absent-count"}>
-              {`Absent ${g.daysAbsent} days`}
+              {`Absent ${g.daysAbsent} day${g.daysAbsent == "1" ? "" : "s"}`}
             </p>
           )}
-        </div>
+          <p className={"comments-" + quarter + " comments"}>{g.comments}</p>
+        </td>
       </>
     );
   }

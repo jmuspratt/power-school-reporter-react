@@ -10,18 +10,9 @@ export function GradesView({
   selectedYear?: string;
   requiredQuarters: string[];
 }) {
-  console.log("GRADES VIEW " + gg.length);
   if (gg.length == 0 || selectedYear == "") {
     return null;
   }
-
-  // Lets restructure the data by terms.
-  //   First find all the possible term names for the dataset
-  const termNames = new Set<string>();
-  gg.forEach((g) => {
-    termNames.add(g.quarter);
-  });
-  console.log("Term Names: " + Array.from(termNames).join(", "));
 
   //TODO: Pass in year to filter on as a prop
   const yearGrades = gg.filter((g) => g.year == selectedYear);
@@ -33,9 +24,6 @@ export function GradesView({
     }
     gradesByClass.get(e.code)?.push(e);
   });
-
-  console.log("GRADES BY CLASS");
-  console.log(gradesByClass);
 
   const buildGradeRows = () => {
     const rows: React.JSX.Element[] = [];

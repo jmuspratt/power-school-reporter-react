@@ -1,22 +1,21 @@
-import { ChangeEventHandler, useState, useEffect } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { StudentDisplay } from "./Student.tsx";
 
 import { mimeToXml, parseXML } from "./parser.ts";
 import { Grade, Student, StudentReport } from "./types.ts";
 import { GradesView } from "./GradesView.tsx";
-import { Instructions } from "./Instructions.tsx";
 
 // Define required quarters globally so it can be used for headers and grade processing
 const REQUIRED_QUARTERS = ["Q1", "Q2", "Q3", "Q4", "Y1"];
 
-function QuarterHeader() {
+function TableHeader() {
   return (
-    <div className="quarter-header">
-      <div>Term</div>
+    <tr className="table-header">
+      <th>Class</th>
       {REQUIRED_QUARTERS.map((quarter) => (
-        <div key={quarter}>{quarter}</div>
+        <th key={quarter}>{quarter}</th>
       ))}
-    </div>
+    </tr>
   );
 }
 
@@ -43,8 +42,6 @@ function YearSelector({
         </option>
       );
     });
-    console.log("OPTIONS");
-    console.log(elements);
     return elements;
   };
   return (
@@ -69,46 +66,10 @@ function App() {
   const [allYears, setAllYears] = useState<string[]>([]);
   const [selectedYear, setSelectedYear] = useState("");
   const [isDragOver, setIsDragOver] = useState(false);
-
-  async function loadTestData() {
-    try {
-      const response = await fetch(
-        "/power-school-reporter-react/data/test.mime"
-      );
-      const mimeContent = await response.text();
-      const xmlStr = mimeToXml(mimeContent);
-      const data: StudentReport = parseXML(xmlStr);
-
-      // Debug logging to see exact structure
-      console.log("=== PARSED DATA STRUCTURE ===");
-      console.log("Student:", JSON.stringify(data.student, null, 2));
-      console.log("Years:", JSON.stringify(data.years, null, 2));
-      console.log("Total grades count:", data.grades.length);
-      console.log(
-        "First few grades:",
-        JSON.stringify(data.grades.slice(0, 3), null, 2)
-      );
-      console.log(
-        "Sample grade structure:",
-        JSON.stringify(data.grades[0], null, 2)
-      );
-      console.log("================================");
-
-      setStudent(data.student);
-      setAllGrades(data.grades);
-      setAllYears(data.years);
-      // Set the first available year as default, or empty if no years
-      setSelectedYear(data.years.length > 0 ? data.years[0] : "");
-    } catch (error) {
-      console.error("Failed to load test data:", error);
-    }
-  }
-
-  useEffect(() => {
-    loadTestData();
-  }, []);
+  const [uploadedFileName, setUploadedFileName] = useState("");
 
   function processFile(file: File) {
+    setUploadedFileName(file.name);
     const r = new FileReader();
     r.readAsText(file);
     r.onloadend = () => {
@@ -120,8 +81,6 @@ function App() {
         setAllYears(data.years);
         // Set the first available year as default, or empty if no years
         setSelectedYear(data.years.length > 0 ? data.years[0] : "");
-        console.log("got years");
-        console.log(data.years);
       }
     };
   }
@@ -162,57 +121,60 @@ function App() {
   // mame years change. Allow for  update when the year is selected.
   return (
     <>
-      {/* <h1 className={"noPrint"}>Power School Report Card Tool</h1> */}
-      {/* <Instructions /> */}
       <div
-        className={`main-header noPrint ${isDragOver ? "drag-over" : ""}`}
+        className={`main-header no-print ${isDragOver ? "drag-over" : ""} ${
+          allYears.length > 0 ? "file-loaded" : ""
+        }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        <div className="main-header__intro">
-          <h1>Power School Report Card Tool</h1>
+        <form id="form" className="drop-zone main-header__form">
+          <h1>Power School Report Card</h1>
           <p>
-            Navigate to the Powerschool Web Portal and download the MIME file
-            student using the icon. Then upload it here.
+            Visit your school’s Powerschool website and download the MIME file
+            for your student (look for the{" "}
+            <span className="material-symbols-outlined">download</span> icon).
           </p>
-        </div>
-
-        <div className="main-header__upload">
-          <div className="drop-zone">
-            <form id="form">
-              <p>Drop Powerschool .mime file here or</p>
-              <input
-                type="file"
-                name="gradeReport"
-                id="gradeReport"
-                onChange={onNewFile}
-                className="file-input"
-                accept=".mime,.xml,.txt"
-              />
-              <label htmlFor="gradeReport" className="file-label">
-                select a file
-              </label>
-            </form>
-          </div>
-        </div>
+          <p>
+            Drag and drop a .mime file here or{" "}
+            <input
+              type="file"
+              name="gradeReport"
+              id="gradeReport"
+              onChange={onNewFile}
+              className="file-input"
+              accept=".mime,.xml,.txt"
+            />
+            <label htmlFor="gradeReport" className="file-label">
+              select a file
+            </label>
+          </p>
+        </form>
       </div>
 
       {allYears.length > 0 && (
         <div className="main-content">
-          <YearSelector
-            yearValues={allYears}
-            onChange={updateSelectedYear}
-            selectedYear={selectedYear}
-          />
-          <StudentDisplay student={student} selectedYear={selectedYear} />
+          <div className="student-header">
+            {uploadedFileName && (
+              <div className="uploaded-file">{uploadedFileName}</div>
+            )}
+            <StudentDisplay student={student} selectedYear={selectedYear} />
+            <YearSelector
+              yearValues={allYears}
+              onChange={updateSelectedYear}
+              selectedYear={selectedYear}
+            />
+          </div>
 
-          <QuarterHeader />
-          <GradesView
-            gg={allGrades}
-            selectedYear={selectedYear}
-            requiredQuarters={REQUIRED_QUARTERS}
-          />
+          <table>
+            <TableHeader />
+            <GradesView
+              gg={allGrades}
+              selectedYear={selectedYear}
+              requiredQuarters={REQUIRED_QUARTERS}
+            />
+          </table>
         </div>
       )}
     </>
