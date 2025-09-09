@@ -37,6 +37,81 @@
   }
 }
 
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus styles for keyboard navigation */
+button:focus,
+input:focus,
+select:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+/* Improve focus visibility for file label */
+.header__file-label:focus-within {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+  border-color: var(--c-primary);
+}
+
+/* File upload zone keyboard accessibility */
+.file-upload-zone:focus {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--c-primary);
+  color: var(--c-background);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast for better readability */
+@media (prefers-contrast: high) {
+  :root {
+    --c-background: #ffffff;
+    --c-primary: #000000;
+    --c-secondary: #444444;
+    --c-border-light: #666666;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none;
+  }
+  .header__form {
+    transition: none;
+  }
+  .header--drag-over .header__form {
+    transform: none;
+  }
+}
+
 /* Base Layout */
 body {
   background-color: var(--c-background);
@@ -87,13 +162,18 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.header__form p {
+  margin: 0.5em 0 0
+
+}
+
 .header__form .material-symbols-outlined {
   font-size: 130%;
   display: inline-block;
   vertical-align: bottom;
 }
 
-.header__form h1 {
+.header__form h1#app-title {
   font-size: var(--f-size-sm);
   margin: 0;
   padding: 0;
@@ -144,7 +224,7 @@ body {
   padding: var(--grid-gap) 0;
 }
 
-.student-header h1 {
+.student-header h2 {
   font-size: var(--f-size-lg);
   margin: 0;
   padding: 0;

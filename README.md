@@ -1,10 +1,10 @@
-# Power School Report Card Tool
+# PowerSchool Report Card Tool
 
-When our school system switched from paper report card to using the power school portal,
+When our school system switched from paper report card to using the PowerSchool portal,
 we lost the ability to view a concise summary of a school year's activities
 including grades and comments.
 
-Since Power School has a data export function, I wrote a tool that lets you generate year by year "report cards"
+Since PowerSchool has a data export function, I wrote a tool that lets you generate year by year "report cards"
 that you save in PDF form (or print even) usng your browser's print function.
 
 The app is currently deployed on [Github pages](https://sberczuk.github.io/power-school-reporter-react/)

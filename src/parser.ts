@@ -69,7 +69,7 @@ export function buildCourseGrades(doc: Document, termNode: Node | null) {
     try {
         let r = coursesIterator.iterateNext()
         while (r) {
-            // @ts-ignore
+            // @ts-expect-error - DOM XPath API typing issue
             const termGrades = buildQuarterlyGrades(doc, r, year, school!);
             allGrades.push(...termGrades)
             r = coursesIterator.iterateNext();
@@ -110,7 +110,6 @@ function buildQuarterlyGrades(doc: Document, courseNode: Node, year:string, scho
             const absent = findSingleNode(doc, r, './/def:DaysAbsent')?.singleNodeValue?.textContent
 
             //TODO: Figure out how best to  avoid the non  null check
-            // @ts-ignore
             let quarter = term?.singleNodeValue?.textContent;
             if (quarter == null || quarter == undefined) {
                 quarter = ""

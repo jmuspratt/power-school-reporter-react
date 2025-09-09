@@ -9,32 +9,42 @@ export function GradeView({ g }: { g: Grade }) {
     if (quarter.startsWith("t")) {
       quarter = quarter.replace("t", "q");
     }
+
+    const gradeLabel = [
+      g.letterGrade,
+      g.numberGrade && `(${g.numberGrade})`,
+    ].filter(Boolean).join(" ");
+
     return (
-      <>
-        <td
-          className={`grades-table__grade grades-table__grade--${quarter}`}
-          data-th={g.quarter}
-        >
-          <div className="grades-table__grade-values">
-            {g.letterGrade && (
-              <span className="grades-table__letter-grade">
-                {g.letterGrade}
-              </span>
-            )}
-            {g.numberGrade && (
-              <span className="grades-table__number-grade">
-                ({g.numberGrade})
-              </span>
-            )}
-          </div>
-          {g.daysAbsent && (
-            <p className="grades-table__absent-count">
-              {`Absent ${g.daysAbsent} day${g.daysAbsent == "1" ? "" : "s"}`}
-            </p>
+      <td
+        className={`grades-table__grade grades-table__grade--${quarter}`}
+        data-th={g.quarter}
+        headers={`class-column quarter-${quarter}`}
+      >
+        <div className="grades-table__grade-values">
+          {g.letterGrade && (
+            <span className="grades-table__letter-grade" aria-label={`Grade: ${gradeLabel}`}>
+              {g.letterGrade}
+            </span>
           )}
-          <p className="grades-table__comments">{g.comments}</p>
-        </td>
-      </>
+          {g.numberGrade && (
+            <span className="grades-table__number-grade" aria-hidden="true">
+              ({g.numberGrade})
+            </span>
+          )}
+        </div>
+        {g.daysAbsent && (
+          <p className="grades-table__absent-count" role="status">
+            {`Absent ${g.daysAbsent} day${g.daysAbsent == "1" ? "" : "s"}`}
+          </p>
+        )}
+        {g.comments && (
+          <p className="grades-table__comments" aria-label={`Comments: ${g.comments}`}>
+            {g.comments}
+          </p>
+        )}
+      </td>
     );
   }
+  return null;
 }

@@ -9,15 +9,20 @@ export function StudentDisplay({
 }) {
   if (student) {
     return (
-      <>
-        <div>
-          <h1>
-            {student.givenName} {student.middleName} {student.familyName}
-          </h1>
-        </div>
-      </>
+      <div>
+        <h2 id="student-name">
+          {student.givenName} {student.middleName} {student.familyName}
+        </h2>
+        <p className="sr-only">
+          Viewing grade report for {selectedYear || "all years"}
+        </p>
+      </div>
     );
   } else {
-    return <>No data for specified student/year</>;
+    return (
+      <div role="status" aria-live="polite">
+        No data for specified student/year
+      </div>
+    );
   }
 }

@@ -32,7 +32,7 @@ export function GradesView({
     // If a record is missing, add a placeholder Grade object with empty values
 
     // Fill in missing quarters for each class
-    gradesByClass.forEach((grades, classCode) => {
+    gradesByClass.forEach((grades) => {
       const existingQuarters = new Set(grades.map((g) => g.quarter));
 
       requiredQuarters.forEach((quarter) => {
@@ -66,11 +66,9 @@ export function GradesView({
       });
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function displaySubjectGrade(
       v: Grade[],
-      k: string,
-      _map: Map<string, Grade[]>
+      k: string
     ) {
       rows.push(<SubjectView key={k} grades={v} />);
     }

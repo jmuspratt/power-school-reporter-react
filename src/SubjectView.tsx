@@ -16,14 +16,16 @@ export function SubjectView({ grades }: { grades: Grade[] | undefined }) {
     displayGrades.push(<GradeView g={a} key={key} />);
   }
   return (
-    <>
-      <tr className="grades-table__row">
-        <td className="grades-table__course" data-th="Class">
+    <tr className="grades-table__row">
+      <th scope="row" className="grades-table__course" data-th="Class">
+        <div>
           <h3 className="grades-table__course-title">{courseTitle}</h3>
-          <p className="grades-table__course-teacher">{teacher}</p>
-        </td>
-        {displayGrades}
-      </tr>
-    </>
+          <p className="grades-table__course-teacher" aria-label={`Instructor: ${teacher}`}>
+            {teacher}
+          </p>
+        </div>
+      </th>
+      {displayGrades}
+    </tr>
   );
 }

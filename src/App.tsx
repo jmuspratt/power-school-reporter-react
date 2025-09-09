@@ -8,14 +8,20 @@ import { GradesView } from "./GradesView.tsx";
 // Define required quarters globally so it can be used for headers and grade processing
 const REQUIRED_QUARTERS = ["Q1", "Q2", "Q3", "Q4", "Y1"];
 
-function TableHeader() {
+function GradesHeader() {
   return (
-    <tr className="grades-table__row grades-table__row--header">
-      <th>Class</th>
-      {REQUIRED_QUARTERS.map((quarter) => (
-        <th key={quarter}>{quarter}</th>
-      ))}
-    </tr>
+    <thead>
+      <tr className="grades-table__row grades-table__row--header">
+        <th scope="col" id="class-column">
+          Class
+        </th>
+        {REQUIRED_QUARTERS.map((quarter) => (
+          <th key={quarter} scope="col" id={`quarter-${quarter.toLowerCase()}`}>
+            {quarter}
+          </th>
+        ))}
+      </tr>
+    </thead>
   );
 }
 
@@ -46,7 +52,16 @@ function YearSelector({
   };
   return (
     <div className="year-selector">
-      <select name={"year"} onChange={onChange} value={selectedYear || "—"}>
+      <label htmlFor="year-select" className="sr-only">
+        Select school year
+      </label>
+      <select
+        id="year-select"
+        name="year"
+        onChange={onChange}
+        value={selectedYear || "—"}
+        aria-label="Select school year for grade report"
+      >
         {yearSelectOptions()}
       </select>
     </div>
@@ -109,6 +124,17 @@ function App() {
     }
   }
 
+  function handleKeyDown(e: React.KeyboardEvent<HTMLElement>) {
+    // Allow spacebar and Enter to trigger file selection
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      const fileInput = document.getElementById(
+        "gradeReport"
+      ) as HTMLInputElement;
+      fileInput?.click();
+    }
+  }
+
   //TODO: Find the right type
   function updateSelectedYear(e: React.ChangeEvent<HTMLInputElement>) {
     setSelectedYear(e.target.value);
@@ -118,43 +144,75 @@ function App() {
   // mame years change. Allow for  update when the year is selected.
   return (
     <>
-      <div
+      <header
         className={`header no-print ${isDragOver ? "header--drag-over" : ""} ${
           allYears.length > 0 ? "header--file-loaded" : ""
         }`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        role="banner"
+        aria-label="File upload area"
       >
-        <form id="form" className="header__form">
-          <h1>Power School Report Card</h1>
+        <form
+          id="form"
+          className="header__form"
+          role="form"
+          aria-labelledby="app-title"
+        >
+          <h1 id="app-title">PowerSchool Report Card</h1>
           <p>
-            Visit your school’s Powerschool website and download the MIME file
+            Visit your school's Powerschool website and download the .mime file
             for your student (look for the{" "}
-            <span className="material-symbols-outlined">download</span> icon).
+            <span className="material-symbols-outlined" aria-hidden="true">
+              download
+            </span>{" "}
+            icon).
           </p>
-          <p>
-            Drag and drop a .mime file here or{" "}
-            <input
-              type="file"
-              name="gradeReport"
-              id="gradeReport"
-              onChange={onNewFile}
-              className="header__file-input"
-              accept=".mime,.xml,.txt"
-            />
-            <label htmlFor="gradeReport" className="header__file-label">
-              select a file
-            </label>
-          </p>
+          <div
+            className="file-upload-zone"
+            tabIndex={0}
+            role="button"
+            aria-label="Drag and drop file here, or press space/enter to select file"
+            onKeyDown={handleKeyDown}
+          >
+            <p>
+              Drag and drop the .mime file here or{" "}
+              <input
+                type="file"
+                name="gradeReport"
+                id="gradeReport"
+                onChange={onNewFile}
+                className="header__file-input"
+                accept=".mime,.xml,.txt"
+                aria-describedby="file-instructions"
+              />
+              <label htmlFor="gradeReport" className="header__file-label">
+                select a file
+              </label>
+            </p>
+          </div>
+          <div id="file-instructions" className="sr-only">
+            Upload a PowerSchool MIME, XML, or text file containing grade data
+          </div>
         </form>
-      </div>
+      </header>
 
       {allYears.length > 0 && (
-        <div className="content">
-          <div className="student-header">
+        <main
+          id="main-content"
+          className="content"
+          role="main"
+          aria-labelledby="student-name"
+        >
+          <section className="student-header" aria-labelledby="student-name">
             {uploadedFileName && (
-              <div className="student-header__uploaded-file">
+              <div
+                className="student-header__uploaded-file"
+                role="status"
+                aria-live="polite"
+              >
+                <span className="sr-only">Loaded file: </span>
                 {uploadedFileName}
               </div>
             )}
@@ -166,17 +224,32 @@ function App() {
                 selectedYear={selectedYear}
               />
             </div>
-          </div>
+          </section>
 
-          <table className="grades-table">
-            <TableHeader />
-            <GradesView
-              gg={allGrades}
-              selectedYear={selectedYear}
-              requiredQuarters={REQUIRED_QUARTERS}
-            />
-          </table>
-        </div>
+          <section aria-labelledby="grades-heading">
+            <h2 id="grades-heading" className="sr-only">
+              Grade Report
+            </h2>
+            <table
+              className="grades-table"
+              role="table"
+              aria-labelledby="grades-heading"
+            >
+              <GradesHeader />
+              <tbody>
+                <GradesView
+                  gg={allGrades}
+                  selectedYear={selectedYear}
+                  requiredQuarters={REQUIRED_QUARTERS}
+                />
+              </tbody>
+            </table>
+          </section>
+
+          <footer className="footer">
+            <p>PowerSchool Report Card - All Rights Reserved</p>
+          </footer>
+        </main>
       )}
     </>
   );
