@@ -5,17 +5,14 @@ import { mimeToXml, parseXML } from "./parser.ts";
 import { Grade, Student, StudentReport } from "./types.ts";
 import { GradesView } from "./GradesView.tsx";
 
-// Define required quarters globally so it can be used for headers and grade processing
-const REQUIRED_QUARTERS = ["Q1", "Q2", "Q3", "Q4", "Y1"];
-
-function GradesHeader() {
+function GradesHeader({ quarters }: { quarters: string[] }) {
   return (
     <thead>
       <tr className="grades-table__row grades-table__row--header">
         <th scope="col" id="class-column">
           Class
         </th>
-        {REQUIRED_QUARTERS.map((quarter) => (
+        {quarters.map((quarter) => (
           <th key={quarter} scope="col" id={`quarter-${quarter.toLowerCase()}`}>
             {quarter}
           </th>
@@ -68,6 +65,12 @@ function YearSelector({
   );
 }
 
+// Extract unique quarters from grades data and sort them alphabetically
+function getUniqueQuarters(grades: Grade[]): string[] {
+  const quarters = new Set(grades.map(grade => grade.quarter));
+  return Array.from(quarters).sort();
+}
+
 function App() {
   const [student, setStudent] = useState<Student>({
     familyName: "",
@@ -76,6 +79,7 @@ function App() {
   });
   const [allGrades, setAllGrades] = useState<Grade[]>([]);
   const [allYears, setAllYears] = useState<string[]>([]);
+  const [availableQuarters, setAvailableQuarters] = useState<string[]>([]);
   const [selectedYear, setSelectedYear] = useState("");
   const [isDragOver, setIsDragOver] = useState(false);
   const [uploadedFileName, setUploadedFileName] = useState("");
@@ -91,6 +95,7 @@ function App() {
         setStudent(data.student);
         setAllGrades(data.grades);
         setAllYears(data.years);
+        setAvailableQuarters(getUniqueQuarters(data.grades));
         // Set the first available year as default, or empty if no years
         setSelectedYear(data.years.length > 0 ? data.years[0] : "");
       }
@@ -235,12 +240,12 @@ function App() {
               role="table"
               aria-labelledby="grades-heading"
             >
-              <GradesHeader />
+              <GradesHeader quarters={availableQuarters} />
               <tbody>
                 <GradesView
                   gg={allGrades}
                   selectedYear={selectedYear}
-                  requiredQuarters={REQUIRED_QUARTERS}
+                  requiredQuarters={availableQuarters}
                 />
               </tbody>
             </table>

@@ -56,13 +56,14 @@ export function GradesView({
         }
       });
 
-      // Sort grades by quarter order
+      // Sort grades by quarter order based on the required quarters array
       grades.sort((a, b) => {
-        const quarterOrder = { Q1: 1, Q2: 2, Q3: 3, Q4: 4, Y1: 5 };
-        return (
-          (quarterOrder[a.quarter as keyof typeof quarterOrder] || 999) -
-          (quarterOrder[b.quarter as keyof typeof quarterOrder] || 999)
-        );
+        const aIndex = requiredQuarters.indexOf(a.quarter);
+        const bIndex = requiredQuarters.indexOf(b.quarter);
+        // If quarter not found in required quarters, put it at the end
+        const aOrder = aIndex === -1 ? 999 : aIndex;
+        const bOrder = bIndex === -1 ? 999 : bIndex;
+        return aOrder - bOrder;
       });
     });
 
